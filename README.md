@@ -7,7 +7,8 @@ Debian
 ```
 apt-get install bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl
 apt-get build-dep linux
-apt-get install gcc-4.9-plugin-dev``` (replace with the version appropriate for your gcc version)
+apt-get install gcc-4.9-plugin-dev (replace with the version appropriate for your gcc version)
+```
 
 Once built
 ----------
