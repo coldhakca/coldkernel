@@ -1,9 +1,11 @@
 coldkernel 
 ==========
-Place all files into same directory, and run ```make```. This directory will become messy, so it is encouraged to create a directory specifically for coldkernel. 
+coldkernel is an attempt at automating the build process of grsec-enabled kernels on Debian/Ubuntu. 
 
-Debian
-------
+Place all files into the same directory, and run ```make```. This directory will become messy, so it is encouraged to create a directory specifically for building coldkernel. 
+
+Dependencies
+------------
 ```
 apt-get install bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl
 apt-get build-dep linux
