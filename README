@@ -1,4 +1,4 @@
-coldkernel by Colin Childs <colin@torproject.org> // ColdHak
+coldkernel by Colin Childs <colin@insecure-complexity.ca> // ColdHak
 
 Place all files into same directory, and run "make". This directory will become messy, so it
 is encouraged to create a directory specifically for coldkernel. 
