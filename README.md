@@ -16,11 +16,12 @@ Once built
 sudo dpkg -i linux-*.deb
 ```
 
-GIDs:
+GIDs
 ----
 TPE-trusted = ```1005```
 Deny sockets  = ```1004```
 
-NOTE: This is still extremely alpha. If it breaks, you get to keep the pieces. There is currently 
-support for x86_64 only.
+Important Notice
+-----------------
+This is still extremely alpha. If it breaks, you get to keep the pieces. There is currently support for x86_64 only.
 
