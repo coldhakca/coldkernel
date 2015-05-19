@@ -1,13 +1,13 @@
 #!/bin/bash
 # ColdKernel build script
 # build 0.1a
-# 4.0.3-grsec-coldkernel
+# 4.0.4-grsec-coldkernel
 # ColdHak (C. // J. // R. // T.)
 
 GRSECURITY=https://grsecurity.net/test/
-GRSECURITY_VERSION="$(curl --silent https://grsecurity.net/testing_rss.php | sed -ne 's/.*\(http[^"]*\).patch/\1/p' | sed 's/<.*//' | sed 's/^.*grsecurity-3.1-4.0.3/grsecurity-3.1-4.0.3/' | sed -n '1p')"
+GRSECURITY_VERSION="$(curl --silent https://grsecurity.net/testing_rss.php | sed -ne 's/.*\(http[^"]*\).patch/\1/p' | sed 's/<.*//' | sed 's/^.*grsecurity-3.1-4.0.4/grsecurity-3.1-4.0.4/' | sed -n '1p')"
 KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
-KERNEL_VERSION=linux-4.0.3
+KERNEL_VERSION=linux-4.0.4
 
 # Fetch Greg & Spender's keys
 function get_keys () {
