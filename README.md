@@ -22,7 +22,7 @@ GIDs
 ----
 * TPE-trusted(CONFIG_GRKERNSEC_TPE_TRUSTED_GID) = ```1005```
 * Deny sockets(CONFIG_GRKERNSEC_SOCKET_ALL)  = ```1004```
-* Proc usergroup(GRKERNSEC_PROC_USERGROUP) = ```1001```
+* PROC usergroup(GRKERNSEC_PROC_USERGROUP) = ```1001```
 
 Important Notice
 -----------------
