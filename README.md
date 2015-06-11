@@ -20,8 +20,9 @@ sudo dpkg -i linux-*.deb
 
 GIDs
 ----
-* TPE-trusted = ```1005```
-* Deny sockets  = ```1004```
+* TPE-trusted(CONFIG_GRKERNSEC_TPE_TRUSTED_GID) = ```1005```
+* Deny sockets(CONFIG_GRKERNSEC_SOCKET_ALL)  = ```1004```
+* Proc usergroup(GRKERNSEC_PROC_USERGROUP) = ```1001```
 
 Important Notice
 -----------------
