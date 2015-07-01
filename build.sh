@@ -4,6 +4,8 @@
 # 4.0.7-grsec-coldkernel
 # ColdHak (C. // J. // R. // T.)
 
+source "$(pwd)/spinner.sh"
+
 GRSECURITY=https://grsecurity.net/test/
 GRSECURITY_VERSION="$(curl --silent https://grsecurity.net/testing_rss.php | sed -ne 's/.*\(http[^"]*\).patch/\1/p' | sed 's/<.*//' | sed 's/^.*grsecurity-3.1-4.0.7/grsecurity-3.1-4.0.7/' | sed -n '1p')"
 KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
@@ -11,60 +13,70 @@ KERNEL_VERSION=linux-4.0.7
 
 # Fetch Greg & Spender's keys
 function get_keys () {
-    echo "Receiving Greg Kroah-Hartman's signing key"
-    gpg --recv-key 647F28654894E3BD457199BE38DBBDC86092693E &&
-    echo "Receiving Spender's signing key"
-    gpg --recv-key DE9452CE46F42094907F108B44D1C0F82525FE49
+    start_spinner "Receiving Greg Kroah-Hartman's signing key..."
+    gpg -q --recv-key 647F28654894E3BD457199BE38DBBDC86092693E > /dev/null 2>&1 &&
+    stop_spinner $?
+    start_spinner "Receiving Spender's signing key..."
+    gpg -q --recv-key DE9452CE46F42094907F108B44D1C0F82525FE49 > /dev/null 2>&1 
+    stop_spinner $?
 }
 
 # Fetch Linux Kernel sources and signatures
 function get_kernel () {
-    echo "Fetching kernel sources and signatures"
-    wget --no-clobber $KERNEL/$KERNEL_VERSION.tar.{sign,xz}
+    start_spinner "Fetching kernel sources and signatures..."
+    wget --no-clobber $KERNEL/$KERNEL_VERSION.tar.{sign,xz} > /dev/null 2>&1
+    stop_spinner $?
 }
 
 # Fetch Kernel patch sources and signatures
 function get_patches () {
-    echo "Fetching grsecurity patch and signatures"
-    wget --no-clobber $GRSECURITY/$GRSECURITY_VERSION.{patch.sig,patch}
+    start_spinner "Fetching grsecurity patch and signatures..."
+    wget --no-clobber $GRSECURITY/$GRSECURITY_VERSION.{patch.sig,patch} > /dev/null 2>&1
+    stop_spinner $?
 }
 
 # Unxz Kernel
 function unpack_kernel () {
-    echo "Unpacking Linux Kernel sources"
+    start_spinner "Unpacking Linux Kernel sources..."
     unxz $KERNEL_VERSION.tar.xz
+    stop_spinner $?
 }
 
 # Verify Linux Kernel sources
 function verify_kernel () {
-    echo "Verifying the Linux Kernel sources"
-    gpg --verify $KERNEL_VERSION.{tar.sign,tar}
+    start_spinner "Verifying the Linux Kernel sources..."
+    gpg --verify $KERNEL_VERSION.{tar.sign,tar} > /dev/null 2>&1
+    stop_spinner $?
 }
 
 # Verify Kernel patches
 function verify_patches () {
-    echo "Verifying Kernel patches"
-    gpg --verify $GRSECURITY_VERSION.{patch.sig,patch}
+    start_spinner "Verifying Kernel patches..."
+    gpg --verify $GRSECURITY_VERSION.{patch.sig,patch} > /dev/null 2>&1
+    stop_spinner $?
 }
 
 # Extract Linux Kernel
 function extract_kernel () {
-    echo "Extracting Linux Kernel sources"
-    tar -vxf $KERNEL_VERSION.tar
+    start_spinner "Extracting Linux Kernel sources..."
+    tar -xf $KERNEL_VERSION.tar
+    stop_spinner $?
 }
 
 # Patch the kernel with grsec, and apply coldkernel config
 function patch_kernel () {
-    echo "Applying grsecurity patch; and moving coldkernel.config into place"
+    start_spinner "Applying grsecurity patch, and moving coldkernel.config into place..."
     cd $KERNEL_VERSION &&
-    patch -p1 < ../$GRSECURITY_VERSION.patch
-    cp ../coldkernel.config .config
+    patch -s -p1 < ../$GRSECURITY_VERSION.patch
+    cp ../coldkernel.config .config > /dev/null 2>&1
+    stop_spinner $?
 }
 
 # Build coldkernel on Debian
 function build_kernel () {
-    echo "Building coldkernel"
-    fakeroot make deb-pkg
+    start_spinner "Building coldkernel..."
+    fakeroot make deb-pkg > /dev/null 2>&1
+    stop_spinner $!
 }
 
 #	      /\
