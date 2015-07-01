@@ -76,7 +76,7 @@ function patch_kernel () {
 function build_kernel () {
     start_spinner "Building coldkernel..."
     fakeroot make deb-pkg > /dev/null 2>&1
-    stop_spinner $!
+    stop_spinner $?
 }
 
 #	      /\
