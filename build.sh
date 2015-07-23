@@ -12,9 +12,9 @@ KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL_VERSION=linux-4.0.8
 
 # Fetch Greg & Spender's keys
-function get_keys () {
-    gpg --recv-key 647F28654894E3BD457199BE38DBBDC86092693E
-    gpg --recv-key DE9452CE46F42094907F108B44D1C0F82525FE49
+function import_keys () {
+    gpg --import ./keys/greg.asc 
+    gpg --import ./keys/spender.asc
 }
 
 # Fetch Linux Kernel sources and signatures
@@ -74,7 +74,7 @@ function build_kernel () {
 
 case "$1" in
                 -v)
-                get_keys &&
+                import_keys &&
                 get_kernel &&
                 get_patches &&
                 unpack_kernel &&
@@ -86,8 +86,8 @@ case "$1" in
                 exit 0;;
 		
 		*)
-		start_spinner "Receiving signing keys..."
-		get_keys > /dev/null 2>&1 &&
+		start_spinner "Importing signing keys..."
+		import_keys > /dev/null 2>&1 &&
 		stop_spinner $?
 		start_spinner "Fetching kernel sources and signatures..."
 		get_kernel > /dev/null 2>&1 &&
