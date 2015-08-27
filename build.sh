@@ -10,21 +10,22 @@ GRSECURITY=https://grsecurity.net/test/
 GRSECURITY_VERSION="$(curl --silent https://grsecurity.net/testing_rss.php | sed -ne 's/.*\(http[^"]*\).patch/\1/p' | sed 's/<.*//' | sed 's/^.*grsecurity-3.1-4.1.6/grsecurity-3.1-4.1.6/' | sed -n '1p')"
 KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL_VERSION=linux-4.1.6
+NUM_CPUS=`cat /proc/cpuinfo | grep processor | wc -l`
 
 # Fetch Greg & Spender's keys
 function import_keys () {
-    gpg --import ./keys/greg.asc 
+    gpg --import ./keys/greg.asc
     gpg --import ./keys/spender.asc
 }
 
 # Fetch Linux Kernel sources and signatures
 function get_kernel () {
-    wget $KERNEL/$KERNEL_VERSION.tar.{sign,xz}
+    wget -c $KERNEL/$KERNEL_VERSION.tar.{sign,xz}
 }
 
 # Fetch Kernel patch sources and signatures
 function get_patches () {
-    wget $GRSECURITY/$GRSECURITY_VERSION.{patch.sig,patch}
+    wget -c $GRSECURITY/$GRSECURITY_VERSION.{patch.sig,patch}
 }
 
 # Unxz Kernel
@@ -56,7 +57,7 @@ function patch_kernel () {
 
 # Build coldkernel on Debian
 function build_kernel () {
-    fakeroot make deb-pkg
+    fakeroot make deb-pkg -j $NUM_CPUS
 }
 
 #	      /\
@@ -84,7 +85,7 @@ case "$1" in
                 patch_kernel &&
                 build_kernel
                 exit 0;;
-		
+
 		*)
 		start_spinner "Importing signing keys..."
 		import_keys > /dev/null 2>&1 &&
