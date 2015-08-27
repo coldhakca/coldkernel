@@ -18,6 +18,16 @@ Once built
 sudo dpkg -i linux-*.deb
 ```
 
+Once running coldkernel
+---------------------------
+```
+sudo paxctl -Cm /usr/sbin/grub-probe
+sudo paxctl -Cm /usr/sbin/grub-mkdevicemap
+sudo paxctl -Cm /usr/sbin/grub-setup
+sudo paxctl -Cm /usr/bin/grub-script-check
+sudo paxctl -Cm /usr/bin/grub-mount
+```
+
 GIDs
 ----
 * TPE-trusted(CONFIG_GRKERNSEC_TPE_TRUSTED_GID) = ```1005```
