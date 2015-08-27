@@ -7,9 +7,9 @@ Place all files into the same directory, and run ```make```. This directory will
 Dependencies
 ------------
 ```
-apt-get install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl
-apt-get build-dep linux
-apt-get install gcc-4.9-plugin-dev (replace with the version appropriate for your gcc version)
+sudo apt-get install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl
+sudo apt-get build-dep linux
+sudo apt-get install gcc-4.9-plugin-dev (replace with the version appropriate for your gcc version)
 ```
 
 Once built
