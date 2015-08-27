@@ -16,11 +16,6 @@ Once built
 ----------
 ```
 sudo dpkg -i linux-*.deb
-```
-
-Once running coldkernel
----------------------------
-```
 sudo paxctl -Cm /usr/sbin/grub-probe
 sudo paxctl -Cm /usr/sbin/grub-mkdevicemap
 sudo paxctl -Cm /usr/sbin/grub-setup
