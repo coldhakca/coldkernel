@@ -10,7 +10,7 @@ GRSECURITY=https://grsecurity.net/test/
 GRSECURITY_VERSION="$(curl --silent https://grsecurity.net/testing_rss.php | sed -ne 's/.*\(http[^"]*\).patch/\1/p' | sed 's/<.*//' | sed 's/^.*grsecurity-3.1-4.1.6/grsecurity-3.1-4.1.6/' | sed -n '1p')"
 KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL_VERSION=linux-4.1.6
-NUM_CPUS=`cat /proc/cpuinfo | grep processor | wc -l`
+NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
 
 # Fetch Greg & Spender's keys
 function import_keys () {
@@ -57,7 +57,7 @@ function patch_kernel () {
 
 # Build coldkernel on Debian
 function build_kernel () {
-    fakeroot make deb-pkg -j $NUM_CPUS
+    fakeroot make -j $NUM_CPUS deb-pkg 
 }
 
 #	      /\
