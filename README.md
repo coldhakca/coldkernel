@@ -22,6 +22,7 @@ sudo paxctl -Cm /usr/sbin/grub-setup
 sudo paxctl -Cm /usr/bin/grub-script-check
 sudo paxctl -Cm /usr/bin/grub-mount
 ```
+Note: Some of the above may not exist on your system, this is OK.
 
 GIDs
 ----
