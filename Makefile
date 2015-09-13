@@ -4,9 +4,6 @@ default:
 debug:
 	bash build.sh -v
 
-update:
-	git pull
-
 clean:
 	rm -r linux-*
 	rm grsecurity*
