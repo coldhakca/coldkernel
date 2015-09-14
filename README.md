@@ -10,8 +10,8 @@ sudo apt-get build-dep linux
 sudo apt-get install gcc-4.9-plugin-dev (replace with the version appropriate for your gcc version)
 ```
 
-Checkout / Build instructions
------------------------------
+Checkout / Build
+----------------
 ```
 wget "https://db.torproject.org/fetchkey.cgi?fingerprint=726824BE9D8D5CF009C5F039FF9D1C57779FB883" -O phoul.asc
 gpg --import phoul.asc
