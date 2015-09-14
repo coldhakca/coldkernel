@@ -2,7 +2,7 @@ coldkernel
 ==========
 coldkernel is an attempt at automating the build process of grsec-enabled kernels on Debian/Ubuntu. 
 
-Place all files into the same directory, and run ```make```. This directory will become messy, so it is encouraged to create a directory specifically for building coldkernel. 
+Follow "Checkout instructions", and run ```make```.
 
 Dependencies
 ------------
@@ -10,6 +10,17 @@ Dependencies
 sudo apt-get install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl
 sudo apt-get build-dep linux
 sudo apt-get install gcc-4.9-plugin-dev (replace with the version appropriate for your gcc version)
+```
+
+Checkout instructions
+---------------------
+```
+wget "https://db.torproject.org/fetchkey.cgi?fingerprint=726824BE9D8D5CF009C5F039FF9D1C57779FB883" -O phoul.asc
+gpg --import phoul.asc
+git clone https://github.com/coldhakca/coldkernel
+cd coldkernel
+git verify-tag coldkernel-0.2a-4.1.7
+git checkout tags/coldkernel-0.2a-4.1.7
 ```
 
 Once built
