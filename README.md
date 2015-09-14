@@ -41,9 +41,9 @@ GIDs and group creation
 * PROC usergroup(GRKERNSEC_PROC_USERGROUP) = ```1001```
 
 ```
-groupadd -g 1005 tpe
-groupadd -g 1004 denysockets
-groupadd -g 1001 grsecproc
+sudo groupadd -g 1005 tpe
+sudo groupadd -g 1004 denysockets
+sudo groupadd -g 1001 grsecproc
 ```
 
 Important Notice
