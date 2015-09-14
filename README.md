@@ -34,11 +34,17 @@ sudo paxctl -Cm /usr/bin/grub-mount
 ```
 Note: Some of the above may not exist on your system, this is OK.
 
-GIDs
-----
+GIDs and group creation
+-----------------------
 * TPE-trusted(CONFIG_GRKERNSEC_TPE_TRUSTED_GID) = ```1005```
 * Deny sockets(CONFIG_GRKERNSEC_SOCKET_ALL)  = ```1004```
 * PROC usergroup(GRKERNSEC_PROC_USERGROUP) = ```1001```
+
+```
+groupadd tpe -g 1005 // Add users to this group if you want them to be able to execute code
+groupadd denysockets -g 1004
+groupadd grsecproc -g 1001
+```
 
 Important Notice
 -----------------
