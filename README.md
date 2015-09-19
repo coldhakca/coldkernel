@@ -25,12 +25,12 @@ make
 Once built
 ----------
 ```
+wget https://grsecurity.net/paxctld/paxctld_1.0-2_amd64.{deb,deb.sig}
+gpg --verify paxctld_1.0-2_amd64.{deb.sig,deb}
+sudo dpkg -i paxctld_1.0-2_amd64.deb
 sudo dpkg -i linux-*.deb
-sudo paxctl -Cm /usr/sbin/grub-probe
-sudo paxctl -Cm /usr/sbin/grub-mkdevicemap
-sudo paxctl -Cm /usr/sbin/grub-setup
-sudo paxctl -Cm /usr/bin/grub-script-check
-sudo paxctl -Cm /usr/bin/grub-mount
+sudo paxctld -d
+reboot
 ```
 Note: Some of the above may not exist on your system, this is OK.
 
