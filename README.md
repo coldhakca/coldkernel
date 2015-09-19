@@ -31,6 +31,7 @@ sudo dpkg -i paxctld_1.0-2_amd64.deb
 sudo dpkg -i linux-*.deb
 sudo cp paxctld.conf /etc/paxctld.conf
 sudo paxctld -d
+sudo update-rc.d paxctld enable
 sudo reboot
 ```
 Note: Some of the above may not exist on your system, this is OK.
