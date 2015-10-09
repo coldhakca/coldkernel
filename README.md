@@ -17,8 +17,8 @@ wget "https://db.torproject.org/fetchkey.cgi?fingerprint=726824BE9D8D5CF009C5F03
 gpg --import phoul.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
-git verify-tag coldkernel-0.2a-4.1.7
-git checkout tags/coldkernel-0.2a-4.1.7
+git verify-tag coldkernel-0.3a-4.2.3
+git checkout tags/coldkernel-0.3a-4.2.3
 make
 ```
 
