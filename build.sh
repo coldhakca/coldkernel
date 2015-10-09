@@ -7,9 +7,9 @@
 source "$(pwd)/spinner.sh"
 
 GRSECURITY=https://grsecurity.net/test/
-GRSECURITY_VERSION="$(curl --silent https://grsecurity.net/testing_rss.php | sed -ne 's/.*\(http[^"]*\).patch/\1/p' | sed 's/<.*//' | sed 's/^.*grsecurity-3.1-4.1.7/grsecurity-3.1-4.1.7/' | sed -n '1p')"
+GRSECURITY_VERSION="$(curl --silent https://grsecurity.net/testing_rss.php | sed -ne 's/.*\(http[^"]*\).patch/\1/p' | sed 's/<.*//' | sed 's/^.*grsecurity-3.1-4.2.3/grsecurity-3.1-4.2.3/' | sed -n '1p')"
 KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
-KERNEL_VERSION=linux-4.1.7
+KERNEL_VERSION=linux-4.2.3
 NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
 
 # Fetch Greg & Spender's keys
