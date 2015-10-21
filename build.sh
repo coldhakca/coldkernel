@@ -45,7 +45,7 @@ function verify_kernel () {
 
 # Verify Kernel patches
 function verify_patches () {
-    gpg --homedir=./.gnupg --verify ./patches/grsecurity-*.{patch.sig,patch}
+    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-*.{patch.sig,patch}
 }
 
 # Extract Linux Kernel
@@ -56,7 +56,7 @@ function extract_kernel () {
 # Patch the kernel with grsec, and apply coldkernel config
 function patch_kernel () {
     cd $KERNEL_VERSION &&
-    patch -p1 < ../patches/grsecurity-*.patch
+    patch -p1 < ../patches/grsecurity/grsecurity-*.patch
     cp ../coldkernel.config .config
 }
 
