@@ -1,6 +1,6 @@
 #!/bin/bash
 # ColdKernel build script
-# build 0.3a
+# build 0.4a
 # 4.2.3-grsec-coldkernel
 # ColdHak (C. // J. // R. // T.)
 
