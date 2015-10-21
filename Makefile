@@ -9,5 +9,4 @@ debug:
 
 clean:
 	rm -r linux-*
-	rm grsecurity*
 
