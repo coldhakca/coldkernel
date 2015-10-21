@@ -1,7 +1,7 @@
 #!/bin/bash
 # ColdKernel build script
-# build 0.2a
-# 4.1.7-grsec-coldkernel
+# build 0.3a
+# 4.2.3-grsec-coldkernel
 # ColdHak (C. // J. // R. // T.)
 
 source "$(pwd)/spinner.sh"
