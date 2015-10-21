@@ -6,16 +6,14 @@
 
 source "$(pwd)/spinner.sh"
 
-GRSECURITY=https://grsecurity.net/test/
-GRSECURITY_VERSION="$(curl --silent https://grsecurity.net/testing_rss.php | sed -ne 's/.*\(http[^"]*\).patch/\1/p' | sed 's/<.*//' | sed 's/^.*grsecurity-3.1-4.2.3/grsecurity-3.1-4.2.3/' | sed -n '1p')"
 KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL_VERSION=linux-4.2.3
 NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
 
 # Fetch Greg & Spender's keys
 function import_keys () {
-    gpg --import ./keys/greg.asc
-    gpg --import ./keys/spender.asc
+    gpg --homedir=./.gnupg --import ./keys/greg.asc
+    gpg --homedir=./.gnupg --import ./keys/spender.asc
 }
 
 # Fetch Linux Kernel sources and signatures
@@ -25,7 +23,14 @@ function get_kernel () {
 
 # Fetch Kernel patch sources and signatures
 function get_patches () {
-    wget -c $GRSECURITY/$GRSECURITY_VERSION.{patch.sig,patch}
+if [ ! -d patches ]
+then
+    git clone https://github.com/coldhakca/deepfreeze patches
+else
+    cd patches
+    git pull
+    cd ..
+fi
 }
 
 # Unxz Kernel
@@ -35,12 +40,12 @@ function unpack_kernel () {
 
 # Verify Linux Kernel sources
 function verify_kernel () {
-    gpg --verify $KERNEL_VERSION.{tar.sign,tar}
+    gpg --homedir=./.gnupg --verify $KERNEL_VERSION.{tar.sign,tar}
 }
 
 # Verify Kernel patches
 function verify_patches () {
-    gpg --verify $GRSECURITY_VERSION.{patch.sig,patch}
+    gpg --homedir=./.gnupg --verify ./patches/grsecurity-*.{patch.sig,patch}
 }
 
 # Extract Linux Kernel
@@ -51,7 +56,7 @@ function extract_kernel () {
 # Patch the kernel with grsec, and apply coldkernel config
 function patch_kernel () {
     cd $KERNEL_VERSION &&
-    patch -p1 < ../$GRSECURITY_VERSION.patch
+    patch -p1 < ../patches/grsecurity-*.patch
     cp ../coldkernel.config .config
 }
 
