@@ -1,13 +1,13 @@
 #!/bin/bash
 # ColdKernel build script
 # build 0.4a
-# 4.2.3-grsec-coldkernel
+# 4.2.4-grsec-coldkernel
 # ColdHak (C. // J. // R. // T.)
 
 source "$(pwd)/spinner.sh"
 
 KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
-KERNEL_VERSION=linux-4.2.3
+KERNEL_VERSION=linux-4.2.4
 NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
 
 # Fetch Greg & Spender's keys
