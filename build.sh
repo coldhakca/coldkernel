@@ -45,7 +45,7 @@ function verify_kernel () {
 
 # Verify Kernel patches
 function verify_patches () {
-    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-*.{patch.sig,patch}
+    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-3.1-4.2.4-*.{patch.sig,patch}
 }
 
 # Extract Linux Kernel
