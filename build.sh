@@ -18,7 +18,7 @@ function import_keys () {
 
 # Fetch Linux Kernel sources and signatures
 function get_kernel () {
-    wget -c $KERNEL/$KERNEL_VERSION.tar.{sign,xz}
+    wget -cN $KERNEL/$KERNEL_VERSION.tar.{sign,xz}
 }
 
 # Fetch Kernel patch sources and signatures
