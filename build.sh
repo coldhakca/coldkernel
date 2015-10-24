@@ -107,7 +107,7 @@ case "$1" in
 		import_keys > /dev/null 2>&1 &&
 		sleep 1
 		stop_spinner $?
-		start_spinner "Removing previous working directory (if it exists)..."
+		start_spinner "Removing previous working directory (if one exists)..."
 		remove_wrkdir > /dev/null 2>&1 &&
 		sleep 1
 		stop_spinner $?
