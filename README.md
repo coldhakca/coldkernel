@@ -13,8 +13,8 @@ sudo apt-get install gcc-4.9-plugin-dev (replace with the version appropriate fo
 Clone / Build
 -------------
 ```
-wget "https://db.torproject.org/fetchkey.cgi?fingerprint=726824BE9D8D5CF009C5F039FF9D1C57779FB883" -O phoul.asc
-gpg --import phoul.asc
+wget "https://coldhak.ca/coldhak/keys/colin.asc" -O colin.asc
+gpg --import colin.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
 git verify-tag coldkernel-0.4a-4.2.4
