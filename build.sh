@@ -16,6 +16,16 @@ function import_keys () {
     gpg --homedir=./.gnupg --import ./keys/spender.asc
 }
 
+# Remove Linux working directory
+function remove_wrkdir () {
+if [ ! -d $KERNEL_VERSION ]
+then
+   echo "Clean!"
+else
+    rm -r $KERNEL_VERSION
+fi
+}
+
 # Fetch Linux Kernel sources and signatures
 function get_kernel () {
     wget -cN $KERNEL/$KERNEL_VERSION.tar.{sign,xz}
@@ -81,7 +91,8 @@ function build_kernel () {
 case "$1" in
                 -v)
                 import_keys &&
-                get_kernel &&
+		remove_wrkdir &&		    
+		get_kernel &&
                 get_patches &&
                 unpack_kernel &&
                 verify_kernel &&
@@ -94,6 +105,11 @@ case "$1" in
 		*)
 		start_spinner "Importing signing keys..."
 		import_keys > /dev/null 2>&1 &&
+		sleep 1
+		stop_spinner $?
+		start_spinner "Removing previous working directory (if it exists)..."
+		remove_wrkdir > /dev/null 2>&1 &&
+		sleep 1
 		stop_spinner $?
 		start_spinner "Fetching kernel sources and signatures..."
 		get_kernel > /dev/null 2>&1 &&
