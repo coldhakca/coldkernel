@@ -1,6 +1,10 @@
 default:
 	bash build.sh
 
+rebuild:
+	rm *.deb &
+	bash build.sh
+
 install:
 	dpkg -i *.deb	
 
