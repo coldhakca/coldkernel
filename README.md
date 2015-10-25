@@ -34,7 +34,6 @@ sudo paxctld -d
 sudo update-rc.d paxctld enable
 sudo reboot
 ```
-Note: Some of the above may not exist on your system, this is OK.
 
 GIDs and group creation
 -----------------------
