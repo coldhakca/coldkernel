@@ -66,7 +66,7 @@ function extract_kernel () {
 # Patch the kernel with grsec, and apply coldkernel config
 function patch_kernel () {
     cd $KERNEL_VERSION &&
-    patch -p1 < ../patches/grsecurity/grsecurity-*.patch
+    patch -p1 < ../patches/grsecurity/grsecurity-3.1-4.2.4-*.patch
     cp ../coldkernel.config .config
 }
 
