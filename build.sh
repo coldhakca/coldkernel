@@ -21,7 +21,7 @@ function import_keys () {
 function remove_wrkdir () {
 if [ ! -d $KERNEL_VERSION ]
 then
-   echo "Clean!"
+   echo "Directory doesn't exist"
 else
     rm -r $KERNEL_VERSION
 fi
