@@ -2,7 +2,7 @@ default:
 	bash build.sh
 
 rebuild:
-	rm *.deb &
+	rm -v *.deb &
 	bash build.sh
 
 install:
@@ -12,4 +12,4 @@ debug:
 	bash build.sh -v
 
 clean:
-	rm -r linux-*
+	rm -rv linux-*
