@@ -92,7 +92,7 @@ function build_kernel () {
 case "$1" in
                 -v)
                 import_keys &&
-		remove_wrkdir &&		    
+		remove_wrkdir &&
 		get_kernel &&
                 get_patches &&
                 unpack_kernel &&
