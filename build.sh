@@ -1,8 +1,9 @@
 #!/bin/bash
-# ColdKernel build script
-# build 0.4a
-# 4.2.4-grsec-coldkernel
-# ColdHak (C. // J. // R. // T.)
+# Description = coldkernel build script
+# Script version = 0.4a
+# Kernel version = 4.2.4-grsec-coldkernel
+# Authors = coldhak (C. // J. // R. // T.)
+# Code name = Egotistical Hamster
 
 source "$(pwd)/spinner.sh"
 
