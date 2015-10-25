@@ -6,7 +6,7 @@ rebuild:
 	bash build.sh
 
 install:
-	dpkg -i *.deb	
+	dpkg -i *.deb
 
 debug:
 	bash build.sh -v
