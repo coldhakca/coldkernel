@@ -46,7 +46,7 @@ function get_patches () {
 
 # Unxz Kernel
 function unpack_kernel () {
-    unxz $KERNEL_VERSION.tar.xz
+    unxz -fk $KERNEL_VERSION.tar.xz
 }
 
 # Verify Linux Kernel sources
