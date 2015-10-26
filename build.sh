@@ -1,6 +1,6 @@
 #!/bin/bash
 # Description = coldkernel build script
-# Script version = 0.4a
+# Script version = 0.4b
 # Code name = Egotistical Hamster
 # Kernel version = 4.2.4-grsec-coldkernel
 # Authors = coldhak (C. // J. // R. // T.)
