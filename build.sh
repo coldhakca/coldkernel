@@ -10,6 +10,7 @@ source "$(pwd)/spinner.sh"
 SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL=linux
 VERSION=4.2.5
+GRSECVERSION=3.1
 NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
 
 # Fetch Greg & Spender's keys
@@ -58,7 +59,7 @@ function verify_kernel () {
 
 # Verify Kernel patches
 function verify_patches () {
-    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-3.1-$VERSION-*.{patch.sig,patch}
+    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-$GRSECVERSION-$VERSION-*.{patch.sig,patch}
 }
 
 # Extract Linux Kernel
@@ -69,7 +70,7 @@ function extract_kernel () {
 # Patch the kernel with grsec, and apply coldkernel config
 function patch_kernel () {
     cd $KERNEL-$VERSION &&
-	patch -p1 < ../patches/grsecurity/grsecurity-3.1-$VERSION-*.patch
+	patch -p1 < ../patches/grsecurity/grsecurity-$GRSECVERSION-$VERSION-*.patch
     cp ../coldkernel.config .config
 }
 
