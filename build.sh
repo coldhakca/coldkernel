@@ -2,13 +2,13 @@
 # Description = coldkernel build script
 # Script version = 0.4b
 # Code name = Egotistical Hamster
-# Kernel version = 4.2.4-grsec-coldkernel
+# Kernel version = 4.2.5-grsec-coldkernel
 # Authors = coldhak (C. // J. // R. // T.)
 
 source "$(pwd)/spinner.sh"
 
 KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
-KERNEL_VERSION=linux-4.2.4
+KERNEL_VERSION=linux-4.2.5
 NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
 
 # Fetch Greg & Spender's keys
@@ -56,7 +56,7 @@ function verify_kernel () {
 
 # Verify Kernel patches
 function verify_patches () {
-    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-3.1-4.2.4-*.{patch.sig,patch}
+    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-3.1-4.2.5-*.{patch.sig,patch}
 }
 
 # Extract Linux Kernel
@@ -67,7 +67,7 @@ function extract_kernel () {
 # Patch the kernel with grsec, and apply coldkernel config
 function patch_kernel () {
     cd $KERNEL_VERSION &&
-	patch -p1 < ../patches/grsecurity/grsecurity-3.1-4.2.4-*.patch
+	patch -p1 < ../patches/grsecurity/grsecurity-3.1-4.2.5-*.patch
     cp ../coldkernel.config .config
 }
 
