@@ -7,8 +7,9 @@
 
 source "$(pwd)/spinner.sh"
 
-KERNEL=https://www.kernel.org/pub/linux/kernel/v4.x
-KERNEL_VERSION=linux-4.2.5
+SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
+KERNEL=linux
+VERSION=4.2.5
 NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
 
 # Fetch Greg & Spender's keys
@@ -19,55 +20,56 @@ function import_keys () {
 
 # Remove Linux working directory
 function remove_wrkdir () {
-    if [ ! -d $KERNEL_VERSION ]
+    if [ ! -d $KERNEL-$VERSION ]
     then
 	echo "Directory doesn't exist"
     else
-	rm -r $KERNEL_VERSION
+	rm -rv $KERNEL-$VERSION
     fi
 }
 
 # Fetch Linux Kernel sources and signatures
 function get_kernel () {
-    wget -cN $KERNEL/$KERNEL_VERSION.tar.{sign,xz}
+    wget -cN $SOURCE/$KERNEL-$VERSION.tar.{sign,xz}
 }
 
 # Fetch Kernel patch sources and signatures
 function get_patches () {
     if [ ! -d patches ]
     then
-	git clone https://github.com/coldhakca/deepfreeze patches
+	git clone https://github.com/coldhakca/deepfreeze patches -b $VERSION
     else
 	cd patches
 	git pull
+	git checkout $VERSION
 	cd ..
     fi
 }
 
 # Unxz Kernel
 function unpack_kernel () {
-    unxz -fk $KERNEL_VERSION.tar.xz
+    unxz -fk $KERNEL-$VERSION.tar.xz
 }
 
 # Verify Linux Kernel sources
 function verify_kernel () {
-    gpg --homedir=./.gnupg --verify $KERNEL_VERSION.{tar.sign,tar}
+    gpg --homedir=./.gnupg --verify $KERNEL-$VERSION.{tar.sign,tar}
 }
 
 # Verify Kernel patches
 function verify_patches () {
-    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-3.1-4.2.5-*.{patch.sig,patch}
+    gpg --homedir=./.gnupg --verify ./patches/grsecurity/grsecurity-3.1-$VERSION-*.{patch.sig,patch}
 }
 
 # Extract Linux Kernel
 function extract_kernel () {
-    tar -xvf $KERNEL_VERSION.tar
+    tar -xvf $KERNEL-$VERSION.tar
 }
 
 # Patch the kernel with grsec, and apply coldkernel config
 function patch_kernel () {
-    cd $KERNEL_VERSION &&
-	patch -p1 < ../patches/grsecurity/grsecurity-3.1-4.2.5-*.patch
+    cd $KERNEL-$VERSION &&
+	patch -p1 < ../patches/grsecurity/grsecurity-3.1-$VERSION-*.patch
     cp ../coldkernel.config .config
 }
 
