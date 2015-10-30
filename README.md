@@ -25,9 +25,9 @@ make
 Once built
 ----------
 ```
-wget https://grsecurity.net/paxctld/paxctld_1.0-2_amd64.{deb,deb.sig}
-gpg --verify paxctld_1.0-2_amd64.{deb.sig,deb}
-sudo dpkg -i paxctld_1.0-2_amd64.deb
+wget https://grsecurity.net/paxctld/paxctld_1.0-3_amd64.{deb,deb.sig}
+gpg --verify paxctld_1.0-3_amd64.{deb.sig,deb}
+sudo dpkg -i paxctld_1.0-3_amd64.deb
 sudo make install
 sudo cp paxctld.conf /etc/paxctld.conf
 sudo paxctld -d
