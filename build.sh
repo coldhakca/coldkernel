@@ -11,7 +11,7 @@ SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL=linux
 VERSION=4.2.6
 GRSECVERSION=3.1
-NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
+NUM_CPUS=`grep -c ^processor /proc/cpuinfo`
 
 # Fetch Greg & Spender's keys
 function import_keys () {
@@ -76,7 +76,7 @@ function patch_kernel () {
 
 # Build coldkernel on Debian
 function build_kernel () {
-    fakeroot make-kpkg -j $NUM_CPUS --initrd --append_to_version=-coldkernel --revision=1 kernel_image kernel_headers
+    fakeroot make-kpkg -j $NUM_CPUS --initrd --append_to_version=-coldkernel --revision=$VERSION-coldkernel-grsec-1 kernel_image kernel_headers
 }
 
 #	      /\
