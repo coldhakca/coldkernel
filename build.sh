@@ -1,15 +1,15 @@
 #!/bin/bash
 # Description = coldkernel build script
-# Script version = 0.4b
-# Code name = Egotistical Hamster
-# Kernel version = 4.2.5-grsec-coldkernel
+# Script version = 0.5a
+# Code name = Homicidal Puffin 
+# Kernel version = 4.2.6-grsec-coldkernel
 # Authors = coldhak (C. // J. // R. // T.)
 
 source "$(pwd)/spinner.sh"
 
 SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL=linux
-VERSION=4.2.5
+VERSION=4.2.6
 GRSECVERSION=3.1
 NUM_CPUS=`grep processor /proc/cpuinfo | wc -l`
 
