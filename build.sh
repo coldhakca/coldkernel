@@ -76,7 +76,7 @@ function patch_kernel () {
 
 # Build coldkernel on Debian
 function build_kernel () {
-    fakeroot make -j $NUM_CPUS deb-pkg
+    fakeroot make-kpkg -j $NUM_CPUS --initrd --append_to_version=-coldkernel --revision=1 kernel_image kernel_headers
 }
 
 #	      /\
