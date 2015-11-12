@@ -1,8 +1,8 @@
 #!/bin/bash
 # Description = coldkernel build script
-# Script version = 0.5a
+# Script version = 0.5b
 # Code name = Homicidal Puffin
-# Kernel version = 4.2.6-grsec-coldkernel
+# Kernel version = 4.2.6-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
 source "$(pwd)/spinner.sh"
