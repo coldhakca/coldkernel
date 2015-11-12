@@ -76,7 +76,7 @@ function patch_kernel () {
 
 # Build coldkernel on Debian
 function build_kernel () {
-    REVISION=`git --git-dir ../patches/.git log | grep -c 4.2.5`
+    REVISION=`git --git-dir ../patches/.git log | grep -c $VERSION`
     fakeroot make-kpkg -j $NUM_CPUS --initrd --append_to_version=-coldkernel --revision=$VERSION-coldkernel-grsec-$REVISION kernel_image kernel_headers
 }
 
