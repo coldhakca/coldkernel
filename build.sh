@@ -1,7 +1,7 @@
 #!/bin/bash
 # Description = coldkernel build script
 # Script version = 0.5a
-# Code name = Homicidal Puffin 
+# Code name = Homicidal Puffin
 # Kernel version = 4.2.6-grsec-coldkernel
 # Authors = coldhak (C. // J. // R. // T.)
 
@@ -76,7 +76,8 @@ function patch_kernel () {
 
 # Build coldkernel on Debian
 function build_kernel () {
-    fakeroot make-kpkg -j $NUM_CPUS --initrd --append_to_version=-coldkernel --revision=$VERSION-grsec-coldkernel-1 kernel_image kernel_headers
+    REVISION=`git --git-dir ../patches/.git log | grep -c 4.2.5`
+    fakeroot make-kpkg -j $NUM_CPUS --initrd --append_to_version=-coldkernel --revision=$VERSION-coldkernel-grsec-$REVISION kernel_image kernel_headers
 }
 
 #	      /\
@@ -102,7 +103,7 @@ case "$1" in
             verify_kernel &&
             verify_patches &&
             extract_kernel &&
-            patch_kernel &&
+	    patch_kernel &&
             build_kernel
 	exit 0;;
 
