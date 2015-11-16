@@ -12,4 +12,10 @@ debug:
 	bash build.sh -v
 
 clean:
-	rm -rv linux-*
+	rm -rv linux-*/ &
+	rm -rv *.deb &
+	rm -rv *.tar
+
+distclean: 
+	rm -rv linux-* patches
+
