@@ -17,5 +17,5 @@ clean:
 	rm -rv *.tar
 
 distclean: 
-	rm -rv linux-* patches
-
+	rm -rv linux-*
+	rm -rv patches
