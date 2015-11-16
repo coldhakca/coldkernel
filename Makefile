@@ -18,4 +18,4 @@ clean:
 
 distclean: 
 	rm -rv linux-* &
-	rm -rv patches
+	rm -rvf patches
