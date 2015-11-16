@@ -1,6 +1,6 @@
 #!/bin/bash
 # Description = coldkernel build script
-# Script version = 0.5b
+# Script version = 0.5c
 # Code name = Homicidal Puffin
 # Kernel version = 4.2.6-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
