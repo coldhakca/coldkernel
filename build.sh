@@ -2,14 +2,14 @@
 # Description = coldkernel build script
 # Script version = 0.5c
 # Code name = Homicidal Puffin
-# Kernel version = 4.2.6-coldkernel-grsec
+# Kernel version = 4.2.7-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
 source "$(pwd)/spinner.sh"
 
 SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL=linux
-VERSION=4.2.6
+VERSION=4.2.7
 GRSECVERSION=3.1
 NUM_CPUS=`grep -c ^processor /proc/cpuinfo`
 
