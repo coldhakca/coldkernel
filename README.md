@@ -31,7 +31,7 @@ sudo dpkg -i paxctld_1.0-3_amd64.deb
 sudo make install
 sudo cp paxctld.conf /etc/paxctld.conf
 sudo paxctld -d
-sudo update-rc.d paxctld enable
+sudo systemctl enable paxctld
 sudo reboot
 ```
 
