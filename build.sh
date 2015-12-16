@@ -1,15 +1,15 @@
 #!/bin/bash
 # Description = coldkernel build script
-# Script version = 0.5c
-# Code name = Homicidal Puffin
-# Kernel version = 4.2.7-coldkernel-grsec
+# Script version = 0.6a
+# Code name = Dubstep Dolphin 
+# Kernel version = 4.3.3-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
 source "$(pwd)/spinner.sh"
 
 SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL=linux
-VERSION=4.2.7
+VERSION=4.3.3
 GRSECVERSION=3.1
 NUM_CPUS=`grep -c ^processor /proc/cpuinfo`
 

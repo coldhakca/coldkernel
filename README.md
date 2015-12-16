@@ -17,8 +17,8 @@ wget "https://coldhak.ca/coldhak/keys/colin.asc" -O colin.asc
 gpg --import colin.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
-git verify-tag coldkernel-0.5c-4.2.7
-git checkout tags/coldkernel-0.5c-4.2.7
+git verify-tag coldkernel-0.6a-4.3.3
+git checkout tags/coldkernel-0.6a-4.3.3
 make
 ```
 
@@ -37,7 +37,7 @@ sudo reboot
 
 GIDs and group creation
 -----------------------
-* TPE-trusted(CONFIG_GRKERNSEC_TPE_TRUSTED_GID) = ```1005```
+* TPE-trusted(CONFIG_GRKERNSEC_TPE_UNTRUSTED_GID) = ```1005```
 * Deny sockets(CONFIG_GRKERNSEC_SOCKET_ALL)  = ```1004```
 * PROC usergroup(GRKERNSEC_PROC_USERGROUP) = ```1001```
 
