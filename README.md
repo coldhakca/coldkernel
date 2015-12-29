@@ -37,14 +37,14 @@ sudo reboot
 
 GIDs and group creation
 -----------------------
-* TPE-untrusted(CONFIG_GRKERNSEC_TPE_UNTRUSTED_GID) = ```1005```
-* Deny sockets(CONFIG_GRKERNSEC_SOCKET_ALL)  = ```1004```
-* PROC usergroup(GRKERNSEC_PROC_USERGROUP) = ```1001```
+* PROC usergroup(GRKERNSEC_PROC_USERGROUP) = ```9001```
+* TPE-untrusted(CONFIG_GRKERNSEC_TPE_UNTRUSTED_GID) = ```9002```
+* Deny sockets(CONFIG_GRKERNSEC_SOCKET_ALL)  = ```9003```
 
 ```
-sudo groupadd -g 1005 tpe
-sudo groupadd -g 1004 denysockets
-sudo groupadd -g 1001 grsecproc
+sudo groupadd -g 9001 grsecproc
+sudo groupadd -g 9002 tpe
+sudo groupadd -g 9003 denysockets
 ```
 
 Important Notice
