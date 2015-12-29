@@ -38,10 +38,15 @@ sudo reboot
 GIDs and group creation
 -----------------------
 * PROC usergroup(GRKERNSEC_PROC_USERGROUP) = ```9001```
+
 ```These users are exempted from grsecurity's /proc restrictions.```
+
 * TPE-untrusted(CONFIG_GRKERNSEC_TPE_UNTRUSTED_GID) = ```9002```
+
 ```These users will not be able to execute any files that are not in root-owned directories writable only by root.``` 
+
 * Deny sockets(CONFIG_GRKERNSEC_SOCKET_ALL)  = ```9003```
+
 ```These  users will be unable to connect to other hosts from your machine or run server applications from your machine.```
 
 ```
