@@ -6,16 +6,17 @@ rebuild:
 	bash build.sh
 
 install:
-	dpkg -i *.deb
+	dpkg -i linux-image*.deb &&
+	dpkg -i linux-headers*.deb
 
 debug:
 	bash build.sh -v
 
 clean:
 	rm -rv linux-*/ &
-	rm -rv *.deb &
-	rm -rv *.tar
-
+	rm -rv *.tar &
+	rm -rv *-coldkernel-*
+	
 distclean: 
 	rm -rv linux-* &
 	rm -rvf patches

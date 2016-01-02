@@ -78,8 +78,8 @@ function patch_kernel () {
 function build_kernel () {
     REVISION=`git --git-dir ../patches/.git log | grep -c $VERSION`
     rm localversion-grsec &&
-	fakeroot make-kpkg -j $NUM_CPUS --initrd --append_to_version=-coldkernel-grsec-$REVISION \
-	     --revision=$VERSION-coldkernel-grsec-$REVISION kernel_image kernel_headers
+	fakeroot make deb-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION \
+                KDEB_PKGVERSION=$VERSION-coldkernel-grsec-$REVISION
 }
 
 #	      /\

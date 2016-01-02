@@ -4,7 +4,7 @@ coldkernel is an attempt at automating the build process of grsec-enabled kernel
 
 ## Dependencies
 ```
-sudo apt-get install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl git kernel-package
+sudo apt-get install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl git
 sudo apt-get build-dep linux
 sudo apt-get install gcc-4.9-plugin-dev (replace with the version appropriate for your gcc version)
 ```
