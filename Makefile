@@ -1,10 +1,6 @@
 default:
 	bash build.sh
 
-rebuild:
-	rm -v *.deb &
-	bash build.sh
-
 install:
 	dpkg -i linux-image*.deb &&
 	dpkg -i linux-headers*.deb
