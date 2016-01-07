@@ -1,1 +1,7 @@
 .gnupg
+patches/
+*.deb
+*.tar
+*.tar.xz
+*.sign
+
