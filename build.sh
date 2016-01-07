@@ -5,6 +5,7 @@
 # Kernel version = 4.3.3-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
+set -e
 source "$(pwd)/spinner.sh"
 
 SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
