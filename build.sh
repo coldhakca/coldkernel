@@ -6,6 +6,8 @@
 # Authors = coldhak (C. // J. // R. // T.)
 
 set -e
+trap "pkill -f build.sh" 2
+
 source "$(pwd)/spinner.sh"
 
 SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
