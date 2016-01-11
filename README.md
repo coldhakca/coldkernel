@@ -4,14 +4,14 @@ coldkernel is an attempt at automating the build process of grsec-enabled kernel
 
 ## Dependencies
 
-### Debian
+### Debian 7+
 ```
 sudo apt-get install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl git
 sudo apt-get build-dep linux
 sudo apt-get install gcc-4.9-plugin-dev (replace with the version appropriate for your gcc version)
 ```
 
-### CentOS
+### CentOS 7+
 ```
 sudo yum groupinstall "Development Tools"
 sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel gcc-plugin-devel wget git gnupg2 bc
@@ -30,7 +30,7 @@ make
 
 ## Once built
 
-### Debian
+### Debian 7+
 ```
 wget https://grsecurity.net/paxctld/paxctld_1.0-4_amd64.{deb,deb.sig}
 gpg --homedir=.gnupg --verify paxctld_1.0-4_amd64.{deb.sig,deb}
