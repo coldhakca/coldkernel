@@ -81,7 +81,7 @@ function patch_kernel () {
 function build_kernel () {
     REVISION=`git --git-dir ../patches/.git log | grep -c $VERSION`
     rm localversion-grsec
-    if [ ! -d /etc/debian_version ]
+    if [ ! -f /etc/debian_version ]
     then
 	    make binrpm-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION
     else
