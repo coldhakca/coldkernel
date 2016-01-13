@@ -1,47 +1,23 @@
 default:
 	@bash build.sh
 
-install:
-	@if [ -e *.rpm ] ; \
-		then \
-			yum localinstall kernel-*.rpm ; \
-	fi;
-	@if [ -e *.deb ] ; \
-		then \
-			dpkg -i linux-image*.deb linux-headers*.deb
-	fi;
+install-deb:
+	@dpkg -i linux-image*.deb &&
+	@dpkg -i linux-headers*.deb
+
+install-rpm:
+	@yum localinstall kernel-*
 
 debug:
 	@bash build.sh -v
 
 clean:
-	@if [ -d linux-*/ ] ; \
-		then \
-			rm -rv linux-*/ ; \
-	fi;
-	@if [ -e *.tar ] ; \
-		then \
-			rm -rv *.tar ; \
-	fi;
-	@if [ -e *-coldkernel-* ] ; \
-		then \
-			rm -rv *-coldkernel-* ; \
-	fi;
-	@if [ -e *_coldkernel_* ] ; \
-		then \
-			rm -rv *_coldkernel_* ; \
-	fi;
+	@rm -rv linux-*/ &
+	@rm -rv *.tar &
+	@rm -rv *-coldkernel-* &
+	@rm -rv *_coldkernel_*
 
-distclean:
-	@if [ -f *.sign ] ; \
-               then \
-                       rm -rv *.sign ; \
-       fi
-	@if [ -e linux-* ] ; \
-		then \
-			rm -rv linux-* ; \
-	fi;
-	@if [ -d patches ] ; \
-		then \
-			rm -rvf patches ; \
-	fi;
+distclean: 
+	@rm -rv linux-* &
+	@rm -rvf patches &
+	@rm -rv kernel-*
