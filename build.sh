@@ -83,10 +83,12 @@ function build_kernel () {
     rm localversion-grsec
     if [ ! -f /etc/debian_version ]
     then
-	    make binrpm-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION
+	make binrpm-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION &&
+	    mv ~/rpmbuild/RPMS/x86_64/kernel-$VERSION .. &&
+	    mv ~/rpmbuild/RPMS/x86_64/kernel-headers-$VERSION ..
     else
-	    fakeroot make bindeb-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION \
-                     KDEB_PKGVERSION=$VERSION-coldkernel-grsec-$REVISION
+	fakeroot make bindeb-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION \
+                 KDEB_PKGVERSION=$VERSION-coldkernel-grsec-$REVISION
     fi
 }
 
