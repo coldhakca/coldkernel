@@ -47,8 +47,8 @@ sudo reboot
 ```
 wget https://grsecurity.net/paxctld/paxctld-systemd-1.0-4.x86_64.{rpm,rpm.sig}
 gpg --homedir=.gnupg --verify paxctld-systemd-1.0-4.x86_64.{rpm.sig,rpm}
-sudo yum localinstall paxctld_1.0-4_amd64.deb
-sudo yum localinstall ~/rpmbuild/RPMS/*.rpm
+sudo yum localinstall paxctld-systemd-1.0-4.x86_64.rpm
+sudo make install
 sudo cp paxctld.conf /etc/paxctld.conf
 sudo paxctld -d
 sudo systemctl enable paxctld
