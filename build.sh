@@ -81,13 +81,16 @@ function patch_kernel () {
 function build_kernel () {
     REVISION=`git --git-dir ../patches/.git log | grep -c $VERSION`
     rm localversion-grsec
-    if [ ! -f /etc/debian_version ]
+    if [ -f /etc/debian_version ]
+    then
+	fakeroot make bindeb-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION \
+		 KDEB_PKGVERSION=$VERSION-coldkernel-grsec-$REVISION
+    elif [ -f /etc/redhat-release ]
     then
 	make binrpm-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION &&
-	    mv ~/rpmbuild/RPMS/x86_64/kernel-* ..
+		mv ~/rpmbuild/RPMS/x86_64/kernel-* ..
     else
-	fakeroot make bindeb-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION \
-                 KDEB_PKGVERSION=$VERSION-coldkernel-grsec-$REVISION
+   	echo "This machine does not appear to be running Debian or CentOS "
     fi
 }
 
