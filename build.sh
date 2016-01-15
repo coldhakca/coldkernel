@@ -90,7 +90,7 @@ function build_kernel () {
 	make binrpm-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION &&
 		mv ~/rpmbuild/RPMS/x86_64/kernel-* ..
     else
-   	echo "This machine does not appear to be running Debian or CentOS "
+   	echo "Your system does not appear to be running Debian, Redhat or their derivatives."
     fi
 }
 
