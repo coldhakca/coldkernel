@@ -6,7 +6,7 @@
 # Authors = coldhak (C. // J. // R. // T.)
 
 set -e
-trap "pkill -f build.sh" 2
+trap "pkill -f build.sh" 1 2
 
 source "$(pwd)/spinner.sh"
 
@@ -91,7 +91,8 @@ function build_kernel () {
 		mv ~/rpmbuild/RPMS/x86_64/kernel-* ..
     else
    	echo "Your system does not appear to be running Debian, Redhat or their derivatives."
-    fi
+	kill -1 $$
+fi
 }
 
 #	      /\
