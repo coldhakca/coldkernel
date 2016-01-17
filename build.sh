@@ -1,7 +1,7 @@
 #!/bin/bash
 # Description = coldkernel build script
-# Script version = 0.6c
-# Code name = Dubstep Dolphin
+# Script version = 0.7a
+# Code name = Asthmatic Aardvark
 # Kernel version = 4.3.3-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
