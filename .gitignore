@@ -1,4 +1,5 @@
 .gnupg
+linux-*/
 patches/
 *.deb
 *.tar

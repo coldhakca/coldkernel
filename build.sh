@@ -1,7 +1,7 @@
 #!/bin/bash
 # Description = coldkernel build script
 # Script version = 0.6c
-# Code name = Dubstep Dolphin 
+# Code name = Dubstep Dolphin
 # Kernel version = 4.3.3-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
@@ -77,12 +77,21 @@ function patch_kernel () {
     cp ../coldkernel.config .config
 }
 
-# Build coldkernel on Debian
+# Build coldkernel
 function build_kernel () {
     REVISION=`git --git-dir ../patches/.git log | grep -c $VERSION`
-    rm localversion-grsec &&
+    rm localversion-grsec
+    if [ -f /etc/debian_version ]
+    then
 	fakeroot make bindeb-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION \
-                KDEB_PKGVERSION=$VERSION-coldkernel-grsec-$REVISION
+		 KDEB_PKGVERSION=$VERSION-coldkernel-grsec-$REVISION
+    elif [ -f /etc/redhat-release ]
+    then
+	make binrpm-pkg -j $NUM_CPUS LOCALVERSION=-coldkernel-grsec-$REVISION &&
+		mv ~/rpmbuild/RPMS/x86_64/kernel-* ..
+    else
+   	echo "Your system does not appear to be running Debian, Redhat or their derivatives."
+    fi
 }
 
 #	      /\
