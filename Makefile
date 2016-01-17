@@ -2,7 +2,7 @@ default:
 	@bash build.sh
 
 install-deb:
-	@dpkg -i linux-image*.deb &&
+	@dpkg -i linux-image*.deb
 	@dpkg -i linux-headers*.deb
 
 install-rpm:
