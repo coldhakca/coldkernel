@@ -2,6 +2,7 @@
 linux-*/
 patches/
 *.deb
+*.rpm
 *.tar
 *.tar.xz
 *.sign
