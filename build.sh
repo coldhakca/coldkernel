@@ -6,7 +6,7 @@
 # Authors = coldhak (C. // J. // R. // T.)
 
 set -e
-trap "pkill -f build.sh" 1 2
+trap "mv coldkernel.config.orig coldkernel.config & pkill -f build.sh " 1 2
 
 source "$(pwd)/spinner.sh"
 

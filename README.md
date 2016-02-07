@@ -19,6 +19,8 @@ sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurse
 ```
 
 ## Clone / Build
+
+### Clone
 ```
 wget "https://coldhak.ca/coldhak/keys/colin.asc" -O colin.asc
 gpg --import colin.asc
@@ -26,7 +28,21 @@ git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
 git verify-tag coldkernel-0.7a-4.3.5
 git checkout tags/coldkernel-0.7a-4.3.5
-make
+```
+
+### Build
+Run ```make``` without arguments to build without hypervisor support. Otherwise, select the option below that best describes
+your setup.
+```
+make kvm-host
+make kvm-guest
+make virtualbox-host
+make virtualbox-guest
+make xen-host
+make xen-guest
+make vmware-host
+make vmware-guest
+make hyperv-guest
 ```
 
 ## Once built
