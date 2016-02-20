@@ -1,8 +1,8 @@
 #!/bin/bash
 # Description = coldkernel build script
-# Script version = 0.7a
-# Code name = Asthmatic Aardvark
-# Kernel version = 4.3.5-coldkernel-grsec
+# Script version = 0.8a
+# Code name = Furious Ferret
+# Kernel version = 4.4.2-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
 set -e
@@ -12,7 +12,7 @@ source "$(pwd)/spinner.sh"
 
 SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL=linux
-VERSION=4.3.5
+VERSION=4.4.2
 GRSECVERSION=3.1
 NUM_CPUS=`grep -c ^processor /proc/cpuinfo`
 

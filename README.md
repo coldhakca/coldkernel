@@ -26,8 +26,8 @@ wget "https://coldhak.ca/coldhak/keys/colin.asc" -O colin.asc
 gpg --import colin.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
-git verify-tag coldkernel-0.7a-4.3.5
-git checkout tags/coldkernel-0.7a-4.3.5
+git verify-tag coldkernel-0.8a-4.4.2
+git checkout tags/coldkernel-0.8a-4.4.2
 ```
 
 ### Build

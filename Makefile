@@ -1,5 +1,7 @@
 default:
+	@cp coldkernel.config coldkernel.config.orig
 	@bash build.sh
+	@mv coldkernel.config.orig coldkernel.config
 
 kvm-host:
 	@cp coldkernel.config coldkernel.config.orig
