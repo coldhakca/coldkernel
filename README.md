@@ -1,7 +1,6 @@
 # coldkernel 
 
-coldkernel is an attempt at automating the build process of grsec-enabled kernels on Debian/Ubuntu. Now with
-experimental CentOS support! 
+coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubuntu and CentOS.
 
 ## Dependencies
 
