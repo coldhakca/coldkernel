@@ -49,6 +49,7 @@ make hyperv-guest
 ## Once built
 
 ### Debian 7+
+From the coldkernel build directory:
 ```
 wget https://grsecurity.net/paxctld/paxctld_1.1-1_amd64.{deb,deb.sig}
 gpg --homedir=.gnupg --verify paxctld_1.1-1_amd64.{deb.sig,deb}
@@ -61,6 +62,7 @@ sudo reboot
 ```
 
 ## CentOS 7+
+From the coldkernel build directory:
 ```
 wget https://grsecurity.net/paxctld/paxctld-systemd-1.1-1.x86_64.{rpm,rpm.sig}
 gpg --homedir=.gnupg --verify paxctld-systemd-1.1-1.x86_64.{rpm.sig,rpm}
