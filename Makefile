@@ -15,15 +15,15 @@ kvm-guest:
 	@bash build.sh
 	@mv coldkernel.config.orig coldkernel.config
 
-qemu-host:
+xen-host:
 	@cp coldkernel.config coldkernel.config.orig
-	@patch < ./virt/qemu/qemu-host.patch
+	@patch < ./virt/xen/xen-host.patch
 	@bash build.sh
 	@mv coldkernel.config.orig coldkernel.config
 
-qemu-guest:
+xen-guest:
 	@cp coldkernel.config coldkernel.config.orig
-	@patch < ./virt/qemu/qemu-guest.patch
+	@patch < ./virt/xen/xen-guest.patch
 	@bash build.sh
 	@mv coldkernel.config.orig coldkernel.config
 
