@@ -23,12 +23,12 @@ sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurse
 
 ### Clone
 ```
-wget "https://coldhak.ca/coldhak/keys/colin.asc" -O colin.asc
-gpg --import colin.asc
+wget "https://coldhak.ca/coldhak/keys/coldhak.asc" -O coldhak.asc
+gpg --import coldhak.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
-git verify-tag coldkernel-0.8b-4.4.6
-git checkout tags/coldkernel-0.8b-4.4.6
+git verify-tag coldkernel-0.8b-4.4.7
+git checkout tags/coldkernel-0.8b-4.4.7
 ```
 
 ### Build
