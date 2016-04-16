@@ -1,4 +1,4 @@
-# coldkernel 
+# coldkernel
 
 coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubuntu and CentOS.
 
@@ -75,13 +75,13 @@ sudo reboot
 ```
 
 ## GIDs
-### ```9001```:GRKERNSEC_PROC_USERGROUP 
+### ```9001```:GRKERNSEC_PROC_USERGROUP
 Users in this group are exempted from grsecurity's /proc restrictions.
 
 ###  ```9002```:CONFIG_GRKERNSEC_TPE_UNTRUSTED_GID
 Users in this group will not be able to execute any files that are not in root-owned directories writable only by root.
 
-### ```9003```:CONFIG_GRKERNSEC_SOCKET_ALL 
+### ```9003```:CONFIG_GRKERNSEC_SOCKET_ALL
 Users in this group will be unable to connect to other hosts from your machine or run server applications from your machine.
 
 ## Group Creation
