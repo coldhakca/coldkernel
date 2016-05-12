@@ -2,7 +2,7 @@
 # Description = coldkernel build script
 # Script version = 0.8c
 # Code name = Furious Ferret
-# Kernel version = 4.5.3-coldkernel-grsec
+# Kernel version = 4.5.4-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
 set -e
@@ -12,7 +12,7 @@ source "$(pwd)/spinner.sh"
 
 SOURCE=https://www.kernel.org/pub/linux/kernel/v4.x
 KERNEL=linux
-VERSION=4.5.3
+VERSION=4.5.4
 GRSECVERSION=3.1
 NUM_CPUS=`grep -c ^processor /proc/cpuinfo`
 
