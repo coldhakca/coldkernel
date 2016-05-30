@@ -1,6 +1,6 @@
 #!/bin/bash
 # Description = coldkernel build script
-# Script version = 0.8c
+# Script version = 0.8d
 # Code name = Furious Ferret
 # Kernel version = 4.5.5-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
