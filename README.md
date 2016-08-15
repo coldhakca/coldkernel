@@ -11,6 +11,7 @@ sudo apt-get build-dep linux
 gcc --version
 sudo apt-get install gcc-4.9-plugin-dev (for GCC 4.9)
 sudo apt-get install gcc-5-plugin-dev (for GCC 5.x)
+sudo apt-get install gcc-6-plugin-dev (for GCC 6.x)
 ```
 
 ### CentOS 7+
@@ -27,8 +28,8 @@ wget "https://coldhak.ca/coldhak/keys/coldhak.asc" -O coldhak.asc
 gpg --import coldhak.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
-git verify-tag coldkernel-0.8f-4.6.5
-git checkout tags/coldkernel-0.8f-4.6.5
+git verify-tag coldkernel-0.8f-4.7.0
+git checkout tags/coldkernel-0.8f-4.7.0
 ```
 
 ### Build
