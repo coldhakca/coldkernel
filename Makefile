@@ -73,7 +73,7 @@ clean:
 	@rm -rv *-coldkernel-* &
 	@rm -rv *_coldkernel_*
 
-distclean: 
+distclean:
 	@rm -rv linux-* &
 	@rm -rvf patches &
 	@rm -rv kernel-*
