@@ -6,12 +6,12 @@ coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubunt
 
 ### Debian 7+
 ```
-sudo apt-get install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl git
-sudo apt-get build-dep linux
+sudo apt install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl git
+sudo apt build-dep linux
 gcc --version
-sudo apt-get install gcc-4.9-plugin-dev (for GCC 4.9)
-sudo apt-get install gcc-5-plugin-dev (for GCC 5.x)
-sudo apt-get install gcc-6-plugin-dev (for GCC 6.x)
+sudo apt install gcc-4.9-plugin-dev (for GCC 4.9)
+sudo apt install gcc-5-plugin-dev (for GCC 5.x)
+sudo apt install gcc-6-plugin-dev (for GCC 6.x)
 ```
 
 ### CentOS 7+
@@ -28,8 +28,8 @@ wget "https://coldhak.ca/coldhak/keys/coldhak.asc" -O coldhak.asc
 gpg --import coldhak.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
-git verify-tag coldkernel-0.8f-4.7.4
-git checkout tags/coldkernel-0.8f-4.7.4
+git verify-tag coldkernel-0.8f-4.7.6
+git checkout tags/coldkernel-0.8f-4.7.6
 ```
 
 ### Build
