@@ -52,9 +52,9 @@ make hyperv-guest
 ### Debian 7+
 From the coldkernel build directory:
 ```
-wget https://grsecurity.net/paxctld/paxctld_1.2-1_amd64.{deb,deb.sig}
-gpg --homedir=.gnupg --verify paxctld_1.2-1_amd64.{deb.sig,deb}
-sudo dpkg -i paxctld_1.2-1_amd64.deb
+wget https://grsecurity.net/paxctld/paxctld_1.2.1-1_amd64.{deb,deb.sig}
+gpg --homedir=.gnupg --verify paxctld_1.2.1-1_amd64.{deb.sig,deb}
+sudo dpkg -i paxctld_1.2.1-1_amd64.deb
 sudo make install-deb
 sudo cp paxctld.conf /etc/paxctld.conf
 sudo paxctld -d
@@ -65,9 +65,9 @@ sudo reboot
 ## CentOS 7+
 From the coldkernel build directory:
 ```
-wget https://grsecurity.net/paxctld/paxctld-systemd-1.2-1.x86_64.{rpm,rpm.sig}
-gpg --homedir=.gnupg --verify paxctld-systemd-1.2-1.x86_64.{rpm.sig,rpm}
-sudo yum localinstall paxctld-systemd-1.2-1.x86_64.rpm
+wget https://grsecurity.net/paxctld/paxctld-systemd-1.2.1-1.x86_64.{rpm,rpm.sig}
+gpg --homedir=.gnupg --verify paxctld-systemd-1.2.1-1.x86_64.{rpm.sig,rpm}
+sudo yum localinstall paxctld-systemd-1.2.1-1.x86_64.rpm
 sudo make install-rpm
 sudo cp paxctld.conf /etc/paxctld.conf
 sudo paxctld -d
