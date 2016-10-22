@@ -7,7 +7,7 @@ coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubunt
 ### Debian 7+
 ```
 sudo apt install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl git
-sudo apt build-dep linux
+sudo apt-get build-dep linux
 gcc --version
 sudo apt install gcc-4.9-plugin-dev (for GCC 4.9)
 sudo apt install gcc-5-plugin-dev (for GCC 5.x)
