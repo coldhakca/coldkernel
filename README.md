@@ -4,7 +4,7 @@ coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubunt
 
 ## Dependencies
 
-### Debian 7+
+### Debian 7+ / Ubuntu
 ```
 sudo apt install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl git
 sudo apt-get build-dep linux
@@ -49,7 +49,7 @@ make hyperv-guest
 
 ## Once built
 
-### Debian 7+
+### Debian 7+ / Ubuntu
 From the coldkernel build directory:
 ```
 wget https://grsecurity.net/paxctld/paxctld_1.2.1-1_amd64.{deb,deb.sig}
