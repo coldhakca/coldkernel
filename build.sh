@@ -1,7 +1,7 @@
 #!/bin/bash
 # Description = coldkernel build script
 # Script version = 0.9a
-# Code name = Furious Ferret
+# Code name = Subversive Sloth
 # Kernel version = 4.8.12-coldkernel-grsec
 # Authors = coldhak (C. // J. // R. // T.)
 
