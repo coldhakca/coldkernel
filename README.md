@@ -7,7 +7,7 @@ support for Qubes TemplateVMs.
 
 ### Debian 7+ / Ubuntu
 ```
-sudo apt install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl curl git
+sudo apt install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl git
 sudo apt-get build-dep linux
 gcc --version
 sudo apt install gcc-4.9-plugin-dev (for GCC 4.9)
