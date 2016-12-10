@@ -57,6 +57,12 @@ hyperv-guest:
 	@bash build.sh
 	@mv coldkernel.config.orig coldkernel.config
 
+qubes-guest:
+	@cp coldkernel.config coldkernel.config.orig
+	@patch < ./virt/qubes/qubes-guest.patch
+	@bash build.sh
+	@mv coldkernel.config.orig coldkernel.config
+
 install-deb:
 	@dpkg -i linux-image*.deb
 	@dpkg -i linux-headers*.deb
