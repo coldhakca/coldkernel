@@ -1,6 +1,7 @@
 # coldkernel
 
-coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubuntu and CentOS.
+coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubuntu and CentOS. It also includes experimental
+support for Qubes TemplateVMs.
 
 ## Dependencies
 
@@ -45,6 +46,7 @@ make xen-guest
 make vmware-host
 make vmware-guest
 make hyperv-guest
+make qubes-guest (EXPERIMENTAL)
 ```
 
 ## Once built
