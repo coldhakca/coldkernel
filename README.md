@@ -31,7 +31,7 @@ In Debian TemplateVM:
 sudo apt install qubes-kernel-vm-support grub2-common
 sudo apt install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl git gcc-4.9-plugin-dev
 ```
-Edit /etc/apt/sources.list and uncomment the lines starting with ```deb-src```.
+Edit ```/etc/apt/sources.list``` and uncomment the lines starting with ```deb-src```.
 ```
 sudo apt-get build-dep linux
 ```
