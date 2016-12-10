@@ -1,5 +1,4 @@
 # coldkernel
-
 coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubuntu and CentOS. It also includes experimental
 support for Qubes TemplateVMs.
 
@@ -21,6 +20,22 @@ sudo yum groupinstall "Development Tools"
 sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel gcc-plugin-devel wget git gnupg2 bc
 ```
 
+### Qubes TemplateVM (Debian)
+In dom0:
+```
+sudo qubes-dom0-update grub2-xen
+```
+
+In Debian TemplateVM:
+```
+sudo apt install qubes-kernel-vm-support grub2-common
+sudo apt install paxctl bc wget gnupg fakeroot build-essential devscripts libfile-fcntllock-perl git gcc-4.9-plugin-dev
+```
+Edit /etc/apt/sources.list and uncomment the lines starting with ```deb-src```.
+```
+sudo apt-get build-dep linux
+```
+
 ## Clone / Build
 
 ### Clone
@@ -29,8 +44,8 @@ wget "https://coldhak.ca/coldhak/keys/coldhak.asc" -O coldhak.asc
 gpg --import coldhak.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
-git verify-tag coldkernel-0.8f-4.8.12
-git checkout tags/coldkernel-0.8f-4.8.12
+git verify-tag coldkernel-0.9a-4.8.12
+git checkout tags/coldkernel-0.9a-4.8.12
 ```
 
 ### Build
@@ -76,6 +91,22 @@ sudo paxctld -d
 sudo systemctl enable paxctld
 sudo reboot
 ```
+
+## Qubes TemplateVM (Debian)
+From the coldkernel build directory:
+```
+wget https://grsecurity.net/paxctld/paxctld_1.2.1-1_amd64.{deb,deb.sig}
+gpg --homedir=.gnupg --verify paxctld_1.2.1-1_amd64.{deb.sig,deb}
+sudo dpkg -i paxctld_1.2.1-1_amd64.deb
+sudo make install-deb
+sudo cp paxctld.conf /etc/paxctld.conf
+sudo paxctld -d
+sudo systemctl enable paxctld
+sudo mkdir /boot/grub
+sudo update-grub2
+sudo reboot
+```
+Once the TemplateVM has been shutdown, you can change the kernel in the Qubes VM manager to ```pvgrub``` and start the VM.
 
 ## GIDs
 ### ```9001```:GRKERNSEC_PROC_USERGROUP
