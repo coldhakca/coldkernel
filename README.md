@@ -35,7 +35,7 @@ Edit ```/etc/apt/sources.list``` and uncomment the lines starting with ```deb-sr
 ```
 sudo apt-get build-dep linux
 ```
-
+<!---
 ### Qubes TemplateVM (Fedora)
 In dom0:
 ```
@@ -48,7 +48,7 @@ sudo yum groupinstall "Development Tools"
 sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel gcc-plugin-devel wget git gnupg2 bc gcc-c++ rpm-build
 sudo yum install qubes-kernel-vm-support grub2-tools
 ```
-
+--->
 ## Clone / Build
 
 ### Clone
@@ -57,8 +57,8 @@ wget "https://coldhak.ca/coldhak/keys/coldhak.asc" -O coldhak.asc
 gpg --import coldhak.asc
 git clone https://github.com/coldhakca/coldkernel
 cd coldkernel
-git verify-tag coldkernel-0.9a-4.8.12
-git checkout tags/coldkernel-0.9a-4.8.12
+git verify-tag coldkernel-0.9a-4.8.13
+git checkout tags/coldkernel-0.9a-4.8.13
 ```
 
 ### Build
@@ -121,6 +121,7 @@ sudo reboot
 ```
 Once the TemplateVM has been shutdown, you can change the kernel in the Qubes VM manager to ```pvgrub``` and start the VM.
 
+<!---
 ## Qubes TemplateVM (Fedora)
 From the coldkernel build directory:
 ```
@@ -135,6 +136,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 sudo reboot
 ```
 Once the TemplateVM has been shutdown, you can change the kernel in the Qubes VM manager to ```pvgrub``` and start the VM.
+--->
 
 ## GIDs
 ### ```9001```:GRKERNSEC_PROC_USERGROUP
