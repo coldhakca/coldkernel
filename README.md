@@ -117,7 +117,7 @@ sudo paxctld -d
 sudo systemctl enable paxctld
 sudo mkdir /boot/grub
 sudo update-grub2
-sudo reboot
+sudo shutdown -h now
 ```
 Once the TemplateVM has been shutdown, you can change the kernel in the Qubes VM manager to ```pvgrub``` and start the VM.
 
