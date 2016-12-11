@@ -37,6 +37,12 @@ sudo apt-get build-dep linux
 ```
 
 ### Qubes TemplateVM (Fedora)
+In dom0:
+```
+sudo qubes-dom0-update grub2-xen
+```
+
+In Fedora TemplateVM:
 ```
 sudo yum groupinstall "Development Tools"
 sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel gcc-plugin-devel wget git gnupg2 bc gcc-c++ rpm-build
