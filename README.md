@@ -2,7 +2,7 @@
 coldkernel is an automated build tool for grsec-enabled kernels on Debian, Ubuntu and CentOS. It also includes experimental
 support for Qubes TemplateVMs.
 
-You will need (at least) 4GB of free disk space.
+You will need (at least) 4GB of free disk space before starting the build.
 
 ## Dependencies
 
