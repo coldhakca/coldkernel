@@ -64,8 +64,8 @@ qubes-guest:
 	@mv coldkernel.config.orig coldkernel.config
 
 install-deb:
-	@dpkg -i linux-image*.deb
 	@dpkg -i linux-headers*.deb
+	@dpkg -i linux-image*.deb
 
 install-rpm:
 	@yum localinstall kernel-*
