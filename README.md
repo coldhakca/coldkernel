@@ -37,20 +37,7 @@ Edit ```/etc/apt/sources.list``` and uncomment the lines starting with ```deb-sr
 ```
 sudo apt-get build-dep linux
 ```
-<!---
-### Qubes TemplateVM (Fedora)
-In dom0:
-```
-sudo qubes-dom0-update grub2-xen
-```
 
-In Fedora TemplateVM:
-```
-sudo yum groupinstall "Development Tools"
-sudo yum install hmaccalc zlib-devel binutils-devel elfutils-libelf-devel ncurses-devel gcc-plugin-devel wget git gnupg2 bc gcc-c++ rpm-build
-sudo yum install qubes-kernel-vm-support grub2-tools
-```
---->
 ## Clone / Build
 
 ### Clone
@@ -122,23 +109,6 @@ sudo update-grub2
 sudo shutdown -h now
 ```
 Once the TemplateVM has been shutdown, you can change the kernel in the Qubes VM manager to ```pvgrub``` and start the VM.
-
-<!---
-## Qubes TemplateVM (Fedora)
-From the coldkernel build directory:
-```
-wget https://grsecurity.net/paxctld/paxctld-systemd-1.2.1-1.x86_64.{rpm,rpm.sig}
-gpg --homedir=.gnupg --verify paxctld-systemd-1.2.1-1.x86_64.{rpm.sig,rpm}
-sudo yum localinstall paxctld-systemd-1.2.1-1.x86_64.rpm
-sudo make install-rpm
-sudo cp paxctld.conf /etc/paxctld.conf
-sudo paxctld -d
-sudo systemctl enable paxctld
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-sudo reboot
-```
-Once the TemplateVM has been shutdown, you can change the kernel in the Qubes VM manager to ```pvgrub``` and start the VM.
---->
 
 ## GIDs
 ### ```9001```:GRKERNSEC_PROC_USERGROUP
